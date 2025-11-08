@@ -11,6 +11,7 @@ In particolare il problema si occupa di generare un array di 50 numeri casuali c
 7. Uscire dal programma
 
 nb. per generare numeri casuali usare vedere http://www.cplusplus.com/reference/cstdlib/srand/ */
+
 #include <iostream>
 #include <cstdlib> // Needed for rand() and srand()
 #include <ctime>   // Needed for time()
@@ -44,7 +45,7 @@ int findIndexMax1Min0(int v[DIM], bool find = true){ // 1  = true (max), 0 = fal
         for(int i = 1; i< DIM; i++){
             if(v[i] < extreme){
                 extreme = v[i];
-                index = i
+                index = i;
             }
         }
     } else { //cercare il massimo
@@ -73,18 +74,11 @@ int moda(int v[DIM]){
         arr[i] = temp;
     }
 
-    int moda = arr[0];
-    int maxCount = 0;
-
-    for(int i = 0; i < DIM; i++){
-        if(arr[i] > maxCount){
-            maxCount = arr[i];
-            moda = v[i];
-        }
-    }
-
-    return moda;
+    int index = findIndexMax1Min0(arr, true);
+    return v[index]; // moda array
 }
+
+
 
 int main() {
   // Get a different random number each time the program runs
@@ -94,7 +88,8 @@ int main() {
     //   int randomNum = rand() % 101;
 
     int v[DIM];
-    int scelta;
+    int scelta = 0;
+    double media = 0.0;
 
     popolaArrayCasuale(v); //cosa succede con &v
 
@@ -104,6 +99,7 @@ int main() {
     // }
 
     do{
+        cout << "------------------------------------------------------------------------------" << endl;
         cout << "\nMenu delle operazioni:\n";
         cout << "1 - Calcolare la media\n";
         cout << "2 - Visualizzare il massimo\n";
@@ -120,17 +116,38 @@ int main() {
 
         switch(scelta){
             case 1:
+            cout << "La media dei valori dell'array e': " << calcolaMedia(v) << endl;
                 break;
             case 2:
+                cout << "Il valore massimo dell'array e': " << v[findIndexMax1Min0(v, 1)] << endl; // la funzione trova l'indice dell'estremo ricercato (true = massimo, false = minimo)
                 break;
             case 3:
+                cout << "Il valore minimo dell'array e': " << v[findIndexMax1Min0(v, 0)] << endl;// la funzione trova l'indice dell'estremo ricercato (true = massimo, false = minimo)
                 break;
             case 4:
-                
+                for(int i = 0; i< DIM; i++){
+                    cout << v[i] << "\t";
+                }
+                cout << "------------------------------------------------------------------------------" << endl;
+                popolaArrayCasuale(v);
+                cout << "Array rigenerato con successo!" << endl;
+                cout << "------------------------------------------------------------------------------" << endl;
+                for(int i = 0; i< DIM; i++){
+                    cout << v[i] << "\t";
+                }
                 break;
             case 5:
+                media = calcolaMedia(v);
+                cout << "I valori che distano meno di 4 dalla media (" << media << ") sono: " << endl;
+                for(int i = 0; i < DIM; i++) {
+                    if(abs(v[i] - media) < 4) { // ✅ uso abs per gestire anche valori sotto la media
+                        cout << v[i] << "\t";
+                    }
+                }
+                cout << endl;
                 break;
-            case 6:
+            case 6: 
+                cout << "La moda dell'array e': " << moda(v) << endl;
                 break;
             case 7:
                 cout << "------------------------------------------------------------------------------" << endl;
@@ -139,11 +156,13 @@ int main() {
                 break;
             default:
                 cout << "\t\tOperazione non valida. \n\t\t\tRiprova..." << endl;
+                break;
         }
+        cout << "------------------------------------------------------------------------------" << endl;
 
-        cout << "\n\n";
+        cout << "\n\n\n\n";
 
-    }while(scelta != 'X');
+    }while(scelta != 7);
     
   return 0;
 }

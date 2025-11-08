@@ -83,8 +83,6 @@ int main(){
     return 0;
 }
 
-
-
 // soluzione pc (molto divertente)
 // int main(){
 //     int n1, n2, n3;
