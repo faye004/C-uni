@@ -62,7 +62,7 @@ int main(){
                 break;
             case 'D':
                 if(n2 != 0){
-                    cout << "\tDivisione: \n\t " << n1 << " : " << n2 << " = " << (static_cast<double>(n1) / n2) << endl; // da riscrivere da solo
+                    cout << "\tDivisione: \n\t " << n1 << " : " << n2 << " = " << ((float)(n1) / n2) << endl; // da riscrivere da solo
                 }else{
                     cout << "\t------------Errore: divisione per zero non permessa.--------------" << endl;
                 }
