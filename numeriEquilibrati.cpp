@@ -11,9 +11,12 @@ bool isNumeroEquilibrato(int n);
 int main() {
     int a, b, count = 0;
 
-    cout << "Inserisci l'intervallo [a,b]: " << endl;
-    cin >> a;
-    cin >> b;
+    do{
+        cout << "Inserisci l'intervallo [a,b]   (a e b positivi, ed a minore di b): " << endl;
+        cin >> a;
+        cin >> b;
+    }while(a < 0 || b < 0 || a >= b); // assicuro che a e b siano positivi e che a sia minore di b
+    cout << endl << endl;
 
     cout << "Numeri equilibrati nell'intervallo [" << a << ", " << b << "]: ";
     for(int i = a; i <= b; i++){
