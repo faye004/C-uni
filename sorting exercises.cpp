@@ -4,7 +4,7 @@ using namespace std;
 
 #define DIM 10
 
-//SBAGLIATO, non puoi dichiarare che una funzione restituisce int così. 
+//SBAGLIATO, non puoi dichiarare che una funzione restituisce int[] così. 
 //devi usare array<int, DIM> nomefunzione(array<int, DIM> arr, int dim){...}
 // CORREGGERE
 
@@ -31,14 +31,18 @@ int main(){
 	
 	
 	array_bubble_sorted = bubbleSort(v);
-	cout << "stampa array ordinato con SELECTION SORT : ";
+	cout << "stampa array ordinato con BUBBLE SORT : ";
 	stampaArray(array_bubble_sorted);
 	cout << "\n\n\n";
 
+	cout << "Array originale per confronto: ";
 	for(int i = 0; i < DIM; i++){
 		cout << v[i] << ", ";
 	}
+
 	cout << "\n\n\n\n\n\n";
+
+	return 0;
 	
 }
 
@@ -68,7 +72,7 @@ void stampaArray(std::array<int, DIM> array){
 }
 
 std::array<int, DIM> copiaArray(array<int, DIM> arr){
-	std::array<int, DIM> new_array = copiaArray(arr);
+	std::array<int, DIM> new_array;
 	
 	for(int i = 0; i < arr.size(); i++){
 		new_array[i] = arr[i];
@@ -77,8 +81,8 @@ std::array<int, DIM> copiaArray(array<int, DIM> arr){
 	return new_array;
 }
 
-array<int, DIM> selectionSort(array<int, DIM> arr){
-	std::array<int, DIM> v[] = copiaArray(arr);
+std::array<int, DIM> selectionSort(std::array<int, DIM> arr){
+	std::array<int, DIM> v = copiaArray(arr);
 	int temp = 0, index_min;
 	
 	for(int i = 0; i < (arr.size()-1); i++){
@@ -129,5 +133,3 @@ array<int, DIM> bubbleSort(array<int, DIM> array){ 			//soluzione mia più veloc
 //			}
 //		}
 //	}
-
-
