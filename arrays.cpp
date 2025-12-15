@@ -19,17 +19,17 @@ using namespace std;
 
 #define DIM 50
 
-void popolaArrayCasuale(int v[DIM]){
-    for(int i = 0; i < DIM; i++){
+void popolaArrayCasuale(int v[], int size){ //In c++, quando passi un array, devi passare SEMPRE la sua posizione
+    for(int i = 0; i < size; i++){
         v[i] = rand()%100 + 1;
     }
 }
 
-double calcolaMedia(int v[DIM]){
+double calcolaMedia(int v[DIM], int size){
     double media = 0.0;
     int somma = 0;
 
-    for(int i = 0; i < DIM; i++){
+    for(int i = 0; i < size; i++){
         somma += v[i];
     }
 
@@ -37,19 +37,19 @@ double calcolaMedia(int v[DIM]){
     return media;
 }
 
-int findIndexMax1Min0(int v[DIM], bool find = true){ // 1  = true (max), 0 = false (min)
+int findIndexMax1Min0(int v[DIM], int size, bool find = true){ // 1  = true (max), 0 = false (min)
     int extreme = v[0];
     int index = 0;
 
     if(find == 0) { //cercare il minimo
-        for(int i = 1; i< DIM; i++){
+        for(int i = 1; i < size; i++){
             if(v[i] < extreme){
                 extreme = v[i];
                 index = i;
             }
         }
     } else { //cercare il massimo
-        for(int i = 1; i< DIM; i++){
+        for(int i = 1; i < size; i++){
             if(v[i] > extreme){
                 extreme = v[i];
                 index = i;
@@ -60,11 +60,11 @@ int findIndexMax1Min0(int v[DIM], bool find = true){ // 1  = true (max), 0 = fal
     return index;
 }
 
-int moda(int v[DIM]){
+int moda(int v[DIM], int size){
     int arr[DIM];
     int temp;
 
-    for(int i = 0; i < DIM; i++){
+    for(int i = 0; i < size; i++){
         int temp = 0;
         for(int j = 0; j < DIM; j++){
             if(v[i] == v[j]){
@@ -91,7 +91,7 @@ int main() {
     int scelta = 0;
     double media = 0.0;
 
-    popolaArrayCasuale(v); //cosa succede con &v
+    popolaArrayCasuale(v, DIM); //cosa succede con &v
 
     // //controllo
     // for(int i = 0; i< DIM; i++){
@@ -116,20 +116,20 @@ int main() {
 
         switch(scelta){
             case 1:
-            cout << "La media dei valori dell'array e': " << calcolaMedia(v) << endl;
+            cout << "La media dei valori dell'array e': " << calcolaMedia(v, DIM) << endl;
                 break;
             case 2:
-                cout << "Il valore massimo dell'array e': " << v[findIndexMax1Min0(v, 1)] << endl; // la funzione trova l'indice dell'estremo ricercato (true = massimo, false = minimo)
+                cout << "Il valore massimo dell'array e': " << v[findIndexMax1Min0(v, DIM, 1)] << endl; // la funzione trova l'indice dell'estremo ricercato (true = massimo, false = minimo)
                 break;
             case 3:
-                cout << "Il valore minimo dell'array e': " << v[findIndexMax1Min0(v, 0)] << endl;// la funzione trova l'indice dell'estremo ricercato (true = massimo, false = minimo)
+                cout << "Il valore minimo dell'array e': " << v[findIndexMax1Min0(v, DIM, 0)] << endl;// la funzione trova l'indice dell'estremo ricercato (true = massimo, false = minimo)
                 break;
             case 4:
                 for(int i = 0; i< DIM; i++){
                     cout << v[i] << "\t";
                 }
                 cout << "------------------------------------------------------------------------------" << endl;
-                popolaArrayCasuale(v);
+                popolaArrayCasuale(v, DIM);
                 cout << "Array rigenerato con successo!" << endl;
                 cout << "------------------------------------------------------------------------------" << endl;
                 for(int i = 0; i< DIM; i++){
@@ -137,17 +137,17 @@ int main() {
                 }
                 break;
             case 5:
-                media = calcolaMedia(v);
+                media = calcolaMedia(v, DIM);
                 cout << "I valori che distano meno di 4 dalla media (" << media << ") sono: " << endl;
                 for(int i = 0; i < DIM; i++) {
-                    if(abs(v[i] - media) < 4) { // ✅ uso abs per gestire anche valori sotto la media
+                    if(abs(v[i] - media) < 4) { // uso abs per gestire anche valori sotto la media
                         cout << v[i] << "\t";
                     }
                 }
                 cout << endl;
                 break;
             case 6: 
-                cout << "La moda dell'array e': " << moda(v) << endl;
+                cout << "La moda dell'array e': " << moda(v, DIM) << endl;
                 break;
             case 7:
                 cout << "------------------------------------------------------------------------------" << endl;
