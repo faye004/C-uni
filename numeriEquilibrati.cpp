@@ -1,4 +1,4 @@
-/*
+/* SFIDA UNI
 OBIETTIVO
 Creare un codice capace di trovare i numeri equilibrati conpresi in un intervallo [a,b] inserito dall'utente. Un numero e' detto equilibrato se la somma delle cifre pari e' uguale alla somma delle cifre dispari.
 Ad esempio, 1210 e' un numero equilibrato in quanto (1+1) = (2+0), mentre 1230 non lo e' in quanto (1+3) != (2+0).
