@@ -1,4 +1,6 @@
-/*Istruzioni
+/*Compito
+
+Istruzioni
 Scrivere un programma per gestire un array di numeri interi.
 
 In particolare il problema si occupa di generare un array di 50 numeri casuali compresi fra 1 e 100 e offrire a menu le seguenti scelte:
