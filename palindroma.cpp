@@ -1,4 +1,4 @@
-/*
+/*Esercizio in classe
 scrivere un programma che verifica se una parola inserita dall'utente è palindroma o meno.
 Una parola è palindroma se si legge allo stesso modo sia da sinistra verso destra sia da destra verso sinistra.
 Ad esempio, "anna" e "radar" sono parole palindrome, mentre "ciao" non lo è.
