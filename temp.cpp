@@ -1,4 +1,4 @@
-/*
+/* file temporaneo per materiale di prova
 
 Simulare l’esecuzione di ciascuna delle 4 chiamate a sottoprogrammi, limitandosi alla descrizione dei valori stampati tramite cout << .
 
