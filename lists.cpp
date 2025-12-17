@@ -65,7 +65,6 @@ int ins_tail(NODE *&head, int n){
         p = p->next;
     }
 
-    tail->dato = n;
     p->next = tail;
     return 1;
 }
@@ -77,6 +76,7 @@ int ins_ordinato(NODE *&head, int n) {
         cout << "Spazio in memoria esaurito" << endl;
         return 0;
     }
+    new_node->dato = n;
 
     // 2. Lista vuota o inserimento in testa
     if (head == NULL || n < head->dato) {
@@ -138,24 +138,28 @@ int del_head(NODE *&head){
     NODE *t = head;
     head = head->next;
     delete t;
+
+    return 1;
 }
 
 int del_tail(NODE *&head){
-    if(head == NULL){
-        return 0; //lista vuota
-    }else if(head->next == NULL){
+    if (head == NULL) {
+        return 0; // lista vuota
+    }
+    else if (head->next == NULL) {
         delete head;
         head = NULL;
         return 1;
     }
 
-    NODE *p = head->next;
-    while(p->next != NULL){
+    NODE *p = head;
+
+    while (p->next->next != NULL) {
         p = p->next;
     }
 
-    delete p;
-    p = NULL;
+    delete p->next;
+    p->next = NULL;
     return 1;
 }
 
@@ -186,5 +190,12 @@ int del(NODE *&head, int n){
 }
 
 void printList(NODE *&head){
+    NODE *p = head;
 
+    while(p != NULL){
+        cout << p->dato << " ";
+        p = p->next;
+    }
+
+    cout << endl;
 }
