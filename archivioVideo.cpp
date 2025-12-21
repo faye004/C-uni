@@ -1,5 +1,5 @@
 #include <fstream>
-#include <string>
+#include <cstring>
 #include <iostream>
 #include <cstdlib>
 using namespace std;
@@ -11,24 +11,24 @@ struct VIDEO {
 	int anno_produzione;
 };
  
-struct NODO {
-	VIDEO info;
-	NODO *next;
+struct NODE {
+	VIDEO dato;
+	NODE *next;
 };
 
-void carica_da_file(NODO *& head);
-void salva_archivio(NODO *head);
-void inserisci_video(NODO *&head);
-void stampa(NODO *head);
-int ins_ordinato(NODO *&head, VIDEO video);
-int ins_coda(NODO *&head, VIDEO video);
+void carica_da_file(NODE *& head);
+void salva_archivio(NODE *head);
+void inserisci_video(NODE *&head);
+void stampa(NODE *head);
+int ins_ordinato(NODE *&head, VIDEO video);
+int ins_coda(NODE *&head, VIDEO video);
 
 int main(){
 	
 }
 
-int ins_oridinato(NODO *&head, VIDEO video){
-	 // 1. Creo il nuovo nodo
+int ins_oridinato(NODE *&head, VIDEO video){
+	 // 1. Creo il nuovo NODE
     NODE* new_node = new NODE;
     if(new_node == NULL){
         cout << "Spazio in memoria esaurito" << endl;
