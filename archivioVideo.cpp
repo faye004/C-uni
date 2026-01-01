@@ -1,3 +1,40 @@
+/*
+Scrivere da tastiera che legge il nominativo di un file ed un numero intero che indichi quanti nomitativi leggere
+leggere i nominativi nel numero indicato precedentemente
+Salvare il nome sul file (file di cui il nome  stato scritto/ricevuto precedentemente) in ordine alfabetico
+
+
+
+QUELLO CHE DOBBIAMO FARE è in sostanza, creare un file con un nome, salvarci dei nomi su questo file in ordine alfabetico
+
+salvare i nomi sul file NON è complicato, (basta copiare sulle slide)
+
+IL PROBLEMA è salvarlo in ordine alfabetico
+conviene usare una lista di array char
+
+per essere in ordine alfabetico, devi usare il metodo delle liste: inserimento_ordinato
+
+inserimento ordinato
+
+inserimento in :
+-LISTA VUOTA: crei un nodo, ci metti il dato, la head = nodo nuovo 
+
+-testa: crei un nodo, ci metti il dato, il next (successivo) di questo nodo è la head iniziale. DOPO QUESTO, il nuovo nodo diventa la nuova head
+
+-coda : crei un nodo, ci metti il dato, scorri la lista finchè non arrivi all'ultimo nodo (della lista), DOPO DI CHE' aggiungi il nuovo nodo
+
+
+
+
+-ordinato: in base all'ordine, tu devi capire se devi usare un:
+    -ins-lista vuota
+    -ins-testa
+    -ins-coda
+    -ins tra i nodi
+    
+*/
+
+
 #include <fstream>
 #include <cstring>
 #include <iostream>
