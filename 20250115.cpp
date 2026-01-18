@@ -95,7 +95,7 @@ int estrai_valore(char data[], int start, int len){
 	return atoi(temp);
 }
 
-bool verifica_date(char[] data_appello, char[] data_verbale){
+bool verifica_date(char data_appello[], char data_verbale[]){
 	int anno1, mese1, anno2, mese2;
 	anno1 = estrai_valore(data_appello, 0, 4);
 	anno2 = estrai_valore(data_appello, 0, 4);
